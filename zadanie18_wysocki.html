@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 18 – funkcje</title></head>
+<body><h1>Definiowanie oraz użycie funkcji w JS</h1>
+<p>Program pobiera dwie liczby i wyświetla wyniki pięciu działań.</p>
+<div id="wynik"></div>
+<script>
+const a = parseFloat(prompt("Podaj pierwszą liczbę a:"));
+const b = parseFloat(prompt("Podaj drugą liczbę b:"));
+function suma_wys(a,b){return a+b;}
+function odejmowanie_wys(a,b){return a-b;}
+function mnozenie_wys(a,b){return a*b;}
+function od_kwadratu_wys(a,b){return [a*a,b*b];}
+function reszta_z_dzielenia_a_przez_b_wys(a,b){return b===0 ? "nie można dzielić przez zero" : a%b;}
+if(Number.isFinite(a)&&Number.isFinite(b)){
+ const kw=od_kwadratu_wys(a,b);
+ document.getElementById("wynik").innerHTML =
+ "Suma: "+suma_wys(a,b)+"<br>Różnica: "+odejmowanie_wys(a,b)+
+ "<br>Iloczyn: "+mnozenie_wys(a,b)+"<br>a do kwadratu: "+kw[0]+
+ "<br>b do kwadratu: "+kw[1]+"<br>Reszta z dzielenia a przez b: "+reszta_z_dzielenia_a_przez_b_wys(a,b);
+}else{document.getElementById("wynik").innerText="Wprowadzono nieprawidłowe dane.";}
+</script></body></html>

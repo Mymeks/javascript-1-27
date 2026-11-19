@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 22 – prostokąt</title></head><body>
+<h1>Pole i obwód prostokąta</h1>
+<form id="formularz"><label>Bok a: <input id="a_dana_wys" type="number" min="0" step="any" required></label>
+<label>Bok b: <input id="b_dana_wys" type="number" min="0" step="any" required></label><button>Oblicz</button></form>
+<p>Pole: <input id="pole" readonly></p><p>Obwód: <input id="obw" readonly></p>
+<table border="1" cellpadding="8"><tr><td id="wyprowadz_pole_wys"></td></tr><tr><td id="wyprowadz_obwod_wys"></td></tr></table>
+<script>
+function Pole_wysocki(a_wys,b_wys){return a_wys*b_wys;}
+function obwod_wysocki(a_wys,b_wys){return 2*a_wys+2*b_wys;}
+document.getElementById("formularz").addEventListener("submit",function(e){e.preventDefault();const a=Number(document.getElementById("a_dana_wys").value),b=Number(document.getElementById("b_dana_wys").value);const p=Pole_wysocki(a,b),o=obwod_wysocki(a,b);document.getElementById("pole").value=p.toFixed(2);document.getElementById("obw").value=o.toFixed(2);document.getElementById("wyprowadz_pole_wys").innerText="Pole prostokąta = "+p.toFixed(2);document.getElementById("wyprowadz_obwod_wys").innerText="Obwód prostokąta = "+o.toFixed(2);});
+</script></body></html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 24 – Math</title>
+<style>body{font-family:Arial;color:navy;font-size:19px}</style></head><body><h1>Obliczenia z użyciem Math</h1><div id="wynik"></div>
+<script>
+const x1_wys=parseFloat(prompt("Podaj x1 (kąt w stopniach):"));
+const x2_wys=parseFloat(prompt("Podaj x2:"));
+const wynik=document.getElementById("wynik");
+if(Number.isFinite(x1_wys)&&Number.isFinite(x2_wys)){
+ const y1=3*Math.pow(x1_wys,6/(6+2));
+ const rad=(x1_wys*Math.PI)/180;
+ const y2=2*Math.cos(rad)+3*Math.sin(rad);
+ const y3=Math.cbrt(Math.pow(x1_wys,5)+2*Math.pow(x2_wys,4)*Math.abs(x1_wys-x2_wys));
+ wynik.innerHTML="Wczytane liczby:<br>x1 = "+x1_wys+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2 = "+x2_wys+
+ "<br><br>W stopniach x1 = "+x1_wys+"°<br>x1 = "+rad.toFixed(2)+" radianów"+
+ "<br><br>y1 = "+y1.toFixed(2)+"<br>y2 = "+y2.toFixed(2)+"<br>y3 = "+y3.toFixed(2);
+}else{wynik.innerText="Wprowadzono nieprawidłowe dane.";}
+</script></body></html>

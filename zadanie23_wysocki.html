@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 23 – drabina</title></head><body>
+<h1>Drabina oparta o mur</h1><p>Podaj wysokość oparcia D oraz odległość podstawy drabiny od muru X.</p>
+<form id="formularz"><label>D [m]: <input id="D" type="number" min="0" step="any" required></label>
+<label>X [m]: <input id="X" type="number" min="0" step="any" required></label><button>Oblicz</button></form>
+<p>Długość drabiny: <output id="dlugosc"></output></p><p>Kąt nachylenia: <output id="kat"></output></p>
+<script>
+function dlugosc_wysocki(D_wys,X_wys){return Math.sqrt(D_wys*D_wys+X_wys*X_wys);}
+function kat_wysocki(D_wys,X_wys){return Math.atan2(D_wys,X_wys)*180/Math.PI;}
+document.getElementById("formularz").addEventListener("submit",function(e){e.preventDefault();const D=Number(document.getElementById("D").value),X=Number(document.getElementById("X").value);document.getElementById("dlugosc").textContent=dlugosc_wysocki(D,X).toFixed(2)+" m";document.getElementById("kat").textContent=kat_wysocki(D,X).toFixed(2)+"°";});
+</script></body></html>

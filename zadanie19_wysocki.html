@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 19 – kwadrat</title>
+<style>body{font-family:Arial}#nazwa{color:red;font-size:28px;margin-top:20px}</style></head><body>
+<h1>Wszystko o KWADRACIE</h1>
+<label>Długość boku: <input type="number" id="dlugosc" min="0" step="any" value="5"> cm</label><br><br>
+<button onclick="pole_wysocki()">Oblicz pole</button>
+<button onclick="obwod_wysocki()">Oblicz obwód</button>
+<div id="nazwa"></div>
+<script>
+function pole_wysocki(){const a=parseFloat(document.getElementById('dlugosc').value);if(a<0||!Number.isFinite(a)){document.getElementById("nazwa").innerText="Podaj poprawną długość.";return;}const b=a*a;document.getElementById("nazwa").innerHTML="Pole kwadratu = "+b.toFixed(2)+" cm²";}
+function obwod_wysocki(){const a=parseFloat(document.getElementById('dlugosc').value);if(a<0||!Number.isFinite(a)){document.getElementById("nazwa").innerText="Podaj poprawną długość.";return;}const b=4*a;document.getElementById("nazwa").innerHTML="Obwód kwadratu = "+b.toFixed(2)+" cm";}
+</script></body></html>

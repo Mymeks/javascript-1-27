@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 25 – rozpad promieniotwórczy</title></head><body>
+<h1>Obliczanie liczby atomów po czasie t</h1>
+<p>Program oblicza stałą rozpadu λ oraz liczbę atomów N. Do testu można podać T₁/₂ = 5700 lat dla C-14 lub 1600 lat dla Ra-226.</p>
+<button onclick="oblicz()">Wprowadź dane i oblicz</button><div id="wynik"></div>
+<script>
+// Autor: Szymon Wysocki
+function oblicz(){
+ const No=parseFloat(prompt("Podaj początkową liczbę atomów No:"));
+ const t=parseFloat(prompt("Podaj czas t w latach:"));
+ const T=parseFloat(prompt("Podaj okres połowicznego rozpadu T1/2 w latach:"));
+ if(![No,t,T].every(Number.isFinite)||No<0||t<0||T<=0){document.getElementById("wynik").innerText="Podaj poprawne dane: No i t nieujemne, T większe od zera.";return;}
+ const lambda=Math.log(2)/T;
+ const N=No*Math.pow(Math.E,-lambda*t);
+ document.getElementById("wynik").innerHTML="Dane: No = "+No+" atomów, t = "+t+" lat, T1/2 = "+T+" lat"+
+ "<br>λ = ln(2) / T1/2 = "+lambda.toFixed(7)+" 1/rok"+
+ "<br>N = No · e^(-λ·t) = "+N.toFixed(2)+" atomów";
+}
+</script></body></html>

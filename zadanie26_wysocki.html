@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 26 – trapez</title></head><body>
+<script>document.write("<h1>Pole i obwód trapezu równoramiennego</h1><p>Wyniki obliczeń pojawią się poniżej po wysłaniu formularza.</p>");</script>
+<form id="formularz"><label>Górna podstawa a [cm]: <input id="a" type="number" min="0" step="any" required></label><br>
+<label>Dolna podstawa b [cm]: <input id="b" type="number" min="0" step="any" required></label><br>
+<label>Wysokość h [cm]: <input id="h" type="number" min="0" step="any" required></label><br><button>Oblicz</button></form>
+<div id="wynik"></div>
+<script>
+function Pow_wysocki(a_wys,b_wys,h_wys){return (a_wys+b_wys)*h_wys/2;}
+function Obw_wysocki(a_wys,b_wys,h_wys){const ramie=Math.sqrt(h_wys*h_wys+Math.pow(Math.abs(a_wys-b_wys)/2,2));return a_wys+b_wys+2*ramie;}
+document.getElementById("formularz").addEventListener("submit",function(e){e.preventDefault();const a=Number(document.getElementById("a").value),b=Number(document.getElementById("b").value),h=Number(document.getElementById("h").value);if(a<=0||b<=0||h<=0){document.getElementById("wynik").innerText="Wszystkie wymiary muszą być większe od zera.";return;}const p=Pow_wysocki(a,b,h),o=Obw_wysocki(a,b,h);document.getElementById("wynik").innerHTML="Pole trapezu = "+p.toFixed(2)+" cm²<br>Obwód trapezu = "+o.toFixed(2)+" cm";});
+</script></body></html>

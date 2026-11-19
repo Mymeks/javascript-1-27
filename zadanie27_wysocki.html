@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 27 – samolot</title></head><body>
+<h1>Samolot startujący z lotniska</h1><p>Artur i Dawid stoją w odległości odl. Samolot przebył drogę s, gdy znalazł się pionowo nad Dawidem.</p>
+<form id="formularz"><label>Odległość odl [m]: <input id="odl" type="number" min="0" step="any" required></label><br>
+<label>Droga samolotu s [m]: <input id="s" type="number" min="0" step="any" required></label><br><button>Oblicz</button></form>
+<div id="wynik"></div>
+<script>
+function wysokosc_wysocki(s_wys,odl_wys){return Math.sqrt(s_wys*s_wys-odl_wys*odl_wys);}
+function kat_wysocki(s_wys,odl_wys){return Math.acos(odl_wys/s_wys)*180/Math.PI;}
+document.getElementById("formularz").addEventListener("submit",function(e){e.preventDefault();const odl_wys=Number(document.getElementById("odl").value),s_wys=Number(document.getElementById("s").value);if(s_wys<=0||odl_wys<0||s_wys<odl_wys){document.getElementById("wynik").innerText="Dane muszą spełniać warunek s ≥ odl oraz s > 0.";return;}const h=wysokosc_wysocki(s_wys,odl_wys),kat=kat_wysocki(s_wys,odl_wys);document.getElementById("wynik").innerHTML="Wysokość h = "+h.toFixed(2)+" m<br>Kąt startu = "+kat.toFixed(2)+"°";});
+</script></body></html>

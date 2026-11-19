@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 21 – walec</title></head><body>
+<h1>Obliczanie objętości i pola powierzchni całkowitej walca</h1>
+<form id="formularz"><label>Promień r: <input type="number" name="promien" min="0" step="any" required></label>
+<label>Wysokość h: <input type="number" name="wysokosc" min="0" step="any" required></label><button type="submit">Oblicz</button></form>
+<p>Objętość V: <input name="obj" id="obj" readonly></p><p>Pole całkowite Pc: <input name="pole" id="pole" readonly></p>
+<div id="pokaz1"></div><div id="pokaz2"></div>
+<script>
+function V(r,h){const wynik=Math.PI*r*r*h;document.getElementsByName('obj')[0].value=wynik.toFixed(2);document.getElementById('pokaz1').innerHTML="V = "+wynik.toFixed(2)+" cm³";}
+function Pc(r,h){const wynik=2*Math.PI*r*r+2*Math.PI*r*h;document.getElementsByName('pole')[0].value=wynik.toFixed(2);document.getElementById('pokaz2').innerHTML="Pc = "+wynik.toFixed(2)+" cm²";}
+document.getElementById("formularz").addEventListener("submit",function(e){e.preventDefault();const r=Number(this.promien.value),h=Number(this.wysokosc.value);V(r,h);Pc(r,h);});
+</script></body></html>

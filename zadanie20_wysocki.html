@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>Zadanie 20 – trójkąt</title></head><body>
+<h1>Długości boków trójkąta</h1><p>Podaj współrzędne trzech punktów A, B i C.</p><button onclick="oblicz()">Wczytaj punkty i oblicz boki</button><div id="wynik"></div>
+<script>
+function AB_wysocki(xa_wys,ya_wys,xb_wys,yb_wys){return Math.sqrt(Math.pow(xb_wys-xa_wys,2)+Math.pow(yb_wys-ya_wys,2));}
+function BC_wysocki(xb_wys,yb_wys,xc_wys,yc_wys){return Math.sqrt(Math.pow(xc_wys-xb_wys,2)+Math.pow(yc_wys-yb_wys,2));}
+function AC_wysocki(xa_wys,ya_wys,xc_wys,yc_wys){return Math.sqrt(Math.pow(xc_wys-xa_wys,2)+Math.pow(yc_wys-ya_wys,2));}
+function oblicz(){
+ const xa_wys=Number(prompt("xa – współrzędna x punktu A:")),ya_wys=Number(prompt("ya – współrzędna y punktu A:"));
+ const xb_wys=Number(prompt("xb – współrzędna x punktu B:")),yb_wys=Number(prompt("yb – współrzędna y punktu B:"));
+ const xc_wys=Number(prompt("xc – współrzędna x punktu C:")),yc_wys=Number(prompt("yc – współrzędna y punktu C:"));
+ if(![xa_wys,ya_wys,xb_wys,yb_wys,xc_wys,yc_wys].every(Number.isFinite)){document.getElementById("wynik").innerText="Nieprawidłowe współrzędne.";return;}
+ const ab=AB_wysocki(xa_wys,ya_wys,xb_wys,yb_wys),bc=BC_wysocki(xb_wys,yb_wys,xc_wys,yc_wys),ac=AC_wysocki(xa_wys,ya_wys,xc_wys,yc_wys);
+ if(ab+bc<=ac||ab+ac<=bc||ac+bc<=ab){document.getElementById("wynik").innerText="Podane punkty nie tworzą trójkąta.";return;}
+ document.getElementById("wynik").innerHTML="AB = "+ab.toFixed(2)+"<br>BC = "+bc.toFixed(2)+"<br>AC = "+ac.toFixed(2);
+}
+</script></body></html>
